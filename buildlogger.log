@@ -1,0 +1,12 @@
+2024/03/15 17:07:07 logger.go:25: LogFile : buildlogger.log
+2024/03/15 17:07:07 main.go:15: Start geoIP - Time 2024-03-15 17:07:07.0572564 +0000 GMT m=+0.005006501
+2024/03/15 17:07:07 commandline.go:18: Command Line [C:\Users\gavin\AppData\Local\Temp\go-build1660861938\b001\exe\main.exe 80.44.77.120 a4js4jd2ld3eddKd3d]
+2024/03/15 17:07:07 commandline.go:35: Input IP is 80.44.77.120
+2024/03/15 17:07:07 api-ipstack.go:21: findLocationFromIP  80.44.77.120
+2024/03/15 17:07:07 api-ipstack.go:26: Calling  http://api.ipstack.com/80.44.77.120?access_key=a4js4jd2ld3eddKd3d
+2024/03/15 17:07:08 api-ipstack.go:62: PAYLOAD
+2024/03/15 17:07:08 api-ipstack.go:64: k: success, v: false
+2024/03/15 17:07:08 api-ipstack.go:64: k: error, v: map[code:101 info:You have not supplied a valid API Access Key. [Technical Support: support@apilayer.com] type:invalid_access_key]
+2024/03/15 17:07:08 api-ipstack.go:44:  - Error Response: map[code:101 info:You have not supplied a valid API Access Key. [Technical Support: support@apilayer.com] type:invalid_access_key]
+2024/03/15 17:07:08 commandline.go:41: Error calling apistack API  - Error Response: map[code:101 info:You have not supplied a valid API Access Key. [Technical Support: support@apilayer.com] type:invalid_access_key]
+2024/03/15 17:07:08 main.go:17: End geoIP - Time 2024-03-15 17:07:08.4368908 +0000 GMT m=+1.384640901
