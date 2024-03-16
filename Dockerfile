@@ -1,10 +1,11 @@
 FROM golang:1.22
-
+ENV GO111MODULE=on
+ENV GOFLAGS=-mod=vendor
 WORKDIR /app
 COPY go.* ./
 RUN go mod download
 
 COPY . .
 
-RUN go build -o /geoip
-CMD ["/geoip; sleep 1d"]
+RUN go build -o /geoip .
+CMD ["/bin/sh","-c","/geoip; sleep 1d"]
