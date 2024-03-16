@@ -7,5 +7,5 @@ RUN go mod download
 
 COPY . .
 
-RUN go build -o /geoip .
-CMD ["/bin/sh","-c","/geoip; sleep 1d"]
+RUN go build -o /geoip
+CMD ["/bin/sh","-c","sleep 1d"]
