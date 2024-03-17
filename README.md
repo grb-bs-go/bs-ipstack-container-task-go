@@ -40,13 +40,14 @@ Example (IPv6): geopIP 0:0:0:0:0:ffff:502c:4d78 a4js4jd2ld3eddKd3d
 JSON Response: {"IP":"80.44.77.120","Latitude":"52.569950103759766","Longitude":"1.1133400201797485"}
 
 
-Sunny Day Test Outcomes
+ 
 
 $ docker exec -it geoip-demo sh -c "/geoip 80.44.77.120 access-key"
 
 {"IP":"80.44.77.120","Latitude":"52.569950103759766","Longitude":"1.1133400201797485"}
 
 
+ 
 $ docker exec -it geoip-demo sh -c "/geoip 1.2.3.4 access-key"
 
 {"IP":"1.2.3.4","Latitude":"-27.467580795288086","Longitude":"153.02789306640625"}
