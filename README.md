@@ -8,9 +8,13 @@ The geoip utility is a simple golang command-line tool that accepts an IP Addres
 Simply type 'geoip' on the IDE or command-line for usage info.
 
 $ geoip
+
 Usage: geoIP ip-address access-key
+
 Example (IPv4): geopIP 80.44.77.120 a4js4jd2ld3eddKd3d
+
 Example (IPv6): geopIP 0:0:0:0:0:ffff:502c:4d78 a4js4jd2ld3eddKd3d
+
 JSON Response: {"IP":"80.44.77.120","Latitude":"52.569950103759766","Longitude":"1.1133400201797485"}
 
 ### Container Image
@@ -36,9 +40,11 @@ Example (IPv6): geopIP 0:0:0:0:0:ffff:502c:4d78 a4js4jd2ld3eddKd3d
 JSON Response: {"IP":"80.44.77.120","Latitude":"52.569950103759766","Longitude":"1.1133400201797485"}
 
 $ docker exec -it geoip-demo sh -c "/geoip 80.44.77.120 access-key"
+
 {"IP":"80.44.77.120","Latitude":"52.569950103759766","Longitude":"1.1133400201797485"}
 
 $ docker exec -it geoip-demo sh -c "/geoip 1.2.3.4 access-key"
+
 {"IP":"1.2.3.4","Latitude":"-27.467580795288086","Longitude":"153.02789306640625"}
 
 ## Run using Kubernetes
@@ -76,8 +82,11 @@ go test
  
 ### Issue with IPv6 not working (api.ipstack.com)
 geoip IPv4 address location resolution works, but the IPStack API consistently returns ZERO latitude/longitude values for all IPv6 addresses. 
+
 $ geoip 0:0:0:0:0:ffff:502c:4d78 access-key
+
 {"IP":"::ffff:502c:4d78","Latitude":"0","Longitude":"0"}
+
 I noticed same result when inputting all common forms of IPv6 address formats (short/long) into the www.ipstack.com website form tool, so assume IPv6 not supported by IPStack (would require further investigation).
 
 # Security
