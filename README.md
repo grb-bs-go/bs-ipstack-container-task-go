@@ -1,11 +1,12 @@
 # Welcome to the geoip page!
-Open Source: Public Repo: https://github.com/grb-bs-go/bs-ipstack-container-task-go
+Public Repo: https://github.com/grb-bs-go/bs-ipstack-container-task-go
 
 ## Description:
 The geoip utility is a simple Golang command-line tool that accepts an IP Address, queries the IPStack API (api.ipstack.com) and outputs the corresponding location lattitude and longitude in JSON format. A valid access key (access-key) is required to be input as a command line argument (register for free account with limited access on www.ipstack.com).
 
 ### Usage
-Simply type 'geoip' on the IDE or OS command-line for usage info.
+Simply type 'geoip' on the IDE or command-line for usage info.
+
 $ geoip
 Usage: geoIP ip-address access-key
 Example (IPv4): geopIP 80.44.77.120 a4js4jd2ld3eddKd3d
@@ -14,6 +15,7 @@ JSON Response: {"IP":"80.44.77.120","Latitude":"52.569950103759766","Longitude":
 
 ### Container Image
 The corresponding image is available from github.
+
 Image Name: jessltd2007/geoip-bs-go  
 URL: https://hub.docker.com/repository/docker/jessltd2007/geoip-bs-go
 
@@ -49,6 +51,9 @@ install go & git
 gh repo clone grb-bs-go/bs-ipstack-container-task-go
 go mod download
 go run main.go
+Functional Testing
+go test
+
  
 ### Issue with IPv6 not working (api.ipstack.com)
  IPv4 address work, but the IPStack consistently returns zero latitude/longitude values for all IPv6 addresses. 
