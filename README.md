@@ -47,23 +47,34 @@ $ docker exec -it geoip-demo sh -c "/geoip 1.2.3.4 access-key"
 
 ## Run using Kubernetes
 If you have access to a K8s cluster, create the following ephemeral pod.
+
 $ kubectl run -i geoip-demo --image=jessltd2007/geoip-bs-go --restart=Never -- /geoip 1.2.3.4 access-key
+
 If you don't see a command prompt, try pressing enter.
+
 {"IP":"1.2.3.4","Latitude":"-27.467580795288086","Longitude":"153.02789306640625"}
 
 # geoip Dev & Build
 The following docker commands were used to build and upload the image (refer simple Dockerfile).
+
 $ docker build -t jessltd2007/geoip-bs-go .
+
 $ docker push jessltd2007/geoip-bs-go
 
 ### IDE (VSCode)
+
 To install/run app within IDE or CL...
+
 install latest go & git
+
 gh repo clone grb-bs-go/bs-ipstack-container-task-go
+
 go mod download
+
 go run main.go
 
 Functional Testing
+
 go test
 
  
