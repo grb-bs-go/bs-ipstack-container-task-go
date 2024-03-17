@@ -2,7 +2,7 @@
 Public Repo: https://github.com/grb-bs-go/bs-ipstack-container-task-go
 
 ## Description:
-The geoip utility is a simple Golang command-line tool that accepts an IP Address, queries the IPStack API (api.ipstack.com) and outputs the corresponding location lattitude and longitude in JSON format. A valid access key (access-key) is required to be input as a command line argument (register for free account with limited access on www.ipstack.com).
+The geoip utility is a simple golang command-line tool that accepts an IP Address, queries the IPStack API (api.ipstack.com) and outputs the corresponding location lattitude and longitude in JSON format. A valid access key (access-key) is required to be input as a command line argument (register for free account with limited access on www.ipstack.com).
 
 ### Usage
 Simply type 'geoip' on the IDE or command-line for usage info.
@@ -39,31 +39,29 @@ If you don't see a command prompt, try pressing enter.
 {"IP":"1.2.3.4","Latitude":"-27.467580795288086","Longitude":"153.02789306640625"}
 
 # geoip Dev & Build
-The following docker commands were used to build and upload the image.
+The following docker commands were used to build and upload the image (refer simple Dockerfile).
 $ docker build -t jessltd2007/geoip-bs-go .
 $ docker push jessltd2007/geoip-bs-go
 
 ### IDE (VSCode)
 To install/run app within IDE or CL...
-install go & git
+install latest go & git
 gh repo clone grb-bs-go/bs-ipstack-container-task-go
 go mod download
 go run main.go
+
 Functional Testing
 go test
 
  
 ### Issue with IPv6 not working (api.ipstack.com)
- IPv4 address work, but the IPStack consistently returns zero latitude/longitude values for all IPv6 addresses. 
+geoip IPv4 address location resolution works, but the IPStack API consistently returns ZERO latitude/longitude values for all IPv6 addresses. 
 $ geoip 0:0:0:0:0:ffff:502c:4d78 access-key
- {"IP":"::ffff:502c:4d78","Latitude":"0","Longitude":"0"}
- I noticed all common forms of IPv6 address formats (short/long) also didnt work on www.ipstack.com website either so assume not supported by IPStack (for now).
+{"IP":"::ffff:502c:4d78","Latitude":"0","Longitude":"0"}
+I noticed same result when inputting all common forms of IPv6 address formats (short/long) into the www.ipstack.com website form tool, so assume IPv6 not supported by IPStack (would require further investigation).
 
 # Security
-Security is whole subject compassing layered infrastructure-centric security practices n conventions across the Cloud/Cluster/Container/Code.
-Contemporary IaC Pipeline-based Build & Deploy of containerised applications is based on Build/Test/Image/Scan/Verify cloud-native toolsets. 
-Container security testing should encompass both static code & dynamic environment SAST/DAST regimes for example Trivy & Clair (currently learning as part of CNCF CKS cert).
-In this simple Go application context, note the access-key is deliberately not included in the program logging. This secret key should be securely stored (cloud secrets/vault etc) and must be input by each geoip utility user. Run within a K8s cluster, we would rely on RBAC and layered cluster security best-practices to secure this containerised app.
+Security is an entire subject compassing layered infrastructure-centric security practices n conventions across the Cloud/Cluster/Container/Code. The contemporary IaC Pipeline-based Build & Deploy of containerised applications is based on Build/Test/Image/Scan/Verify cloud-native toolsets. Container security testing should encompass both static code & dynamic environment (SAST/DAST/IAST) regimes for example Trivy & Clair (currently learning as part of CNCF CKS training). In this simple Go application context, note the access-key is deliberately not included in the program logging output. This secret access key should be securely stored (cloud secrets/vault etc) and must be input by each geoip utility user. Run within a K8s cluster, we would rely on RBAC and layered cluster security best-practices to secure this containerised app.
 
 
 
