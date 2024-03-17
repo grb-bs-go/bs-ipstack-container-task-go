@@ -26,7 +26,9 @@ URL: https://hub.docker.com/repository/docker/jessltd2007/geoip-bs-go
 
 # Run geoip
 ## Run using Docker
+
 $ docker run --name geoip-demo -d jessltd2007/geoip-bs-go
+
 $ docker exec -it geoip-demo sh -c /geoip
 Usage: geoIP ip-address access-key
 Example (IPv4): geopIP 80.44.77.120 a4js4jd2ld3eddKd3d
