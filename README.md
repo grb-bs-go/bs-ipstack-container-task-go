@@ -6,10 +6,15 @@ The geoip utility is a simple golang command-line tool that accepts an IP Addres
 
 ### Usage
 Simply type 'geoip' on the IDE or command-line for usage info.
+
 $ geoip
+
 Usage: geoIP ip-address access-key
+
 Example (IPv4): geopIP 80.44.77.120 a4js4jd2ld3eddKd3d
+
 Example (IPv6): geopIP 0:0:0:0:0:ffff:502c:4d78 a4js4jd2ld3eddKd3d
+
 JSON Response: {"IP":"80.44.77.120","Latitude":"52.569950103759766","Longitude":"1.1133400201797485"}
 
 ### Container Image
